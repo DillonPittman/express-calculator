@@ -3,15 +3,21 @@ var express = require("express");
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Create express app instance.
 var app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 // What routes do you need to have? Which ones are optional?
 // TODO Add your routes here
-app.get("", function(req, res) {
+app.get("/:operation/:firstNum/:secondNum", function(req, res) {
+  var operation = req.params.operation;
+  var firstNum = parseInt(req.params.firstNum);
+  var secondNum = parseInt(req.params.secondNum);
+
 
   // TODO parse out the variables from the request
   // Parameters are received from the URL
@@ -24,15 +30,20 @@ app.get("", function(req, res) {
   switch (operation) {
   // BONUS - How could you use * + etc. inside the app.get()?
   case "add":
+  case "+":
+    result = firstNum + secondNum;
     // Add your logic here. Pun intended.
     break;
   case "subtract":
+    result = firstNum - secondNum;
     // Subtract logic
     break;
   case "multiply":
+    result = firstNum * secondNum;
     // Multiply
     break;
   case "divide":
+    result = firstNum / secondNum;
     // Divide
     break;
   default:
