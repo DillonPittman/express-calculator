@@ -31,18 +31,29 @@ app.get("/:operation/:firstNum/:secondNum", function(req, res) {
   // BONUS - How could you use * + etc. inside the app.get()?
   case "add":
   case "+":
+  case "plus":
+  case "addition":
     result = firstNum + secondNum;
     // Add your logic here. Pun intended.
     break;
   case "subtract":
+  case "subtraction":
+  case "-":
+  case "minus":
     result = firstNum - secondNum;
     // Subtract logic
     break;
   case "multiply":
+  case "multiplication":
+  case "*":
+  case "x":
+  case "times":
     result = firstNum * secondNum;
     // Multiply
     break;
   case "divide":
+  case "division":
+  case "/":
     result = firstNum / secondNum;
     // Divide
     break;
